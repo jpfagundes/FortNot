@@ -13,7 +13,9 @@ export async function fetchStore(): Promise<FortniteStoreEntry[]> {
       },
     });
 
-    return response.data.data.featured?.entries || [];
+    const shopData = response.data.data;
+
+    return shopData.entries || [];
   } catch (err) {
     console.error("Erro ao buscar loja do Fortnite:", err);
     return [];
