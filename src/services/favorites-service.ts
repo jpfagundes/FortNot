@@ -13,3 +13,9 @@ export async function listFavorites() {
     orderBy: { createdAt: "desc" },
   });
 }
+
+export async function deleteFavorite(id: string) {
+  return prisma.favorite.delete({
+    where: { id: Number(id) },
+  });
+}

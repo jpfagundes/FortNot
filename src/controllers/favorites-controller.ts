@@ -26,3 +26,13 @@ export async function listFavorites(req: Request, res: Response) {
     return res.status(500).json({ error: "Erro ao listar favoritos." });
   }
 }
+
+export async function deleteFavorite(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+    await favoriteService.deleteFavorite(id);
+    return res.sendStatus(204);
+  } catch (error) {
+    return res.status(500).json({ error: "Erro ao deletar favorito." });
+  }
+} 
