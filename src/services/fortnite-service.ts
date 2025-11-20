@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FortniteStoreEntry } from "../types/fortnite";
+import { FortniteStoreEntry } from "../types/fortnite.js";
 
 const API_KEY = process.env.FORT_API_KEY;
 

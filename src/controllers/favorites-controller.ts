@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as favoriteService from "../services/favorites-service";
+import * as favoriteService from "../services/favorites-service.js";
 
 export async function createFavorite(req: Request, res: Response) {
   try {
