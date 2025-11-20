@@ -1,0 +1,30 @@
+name: Check Fortnite Store
+
+on:
+  schedule:
+    - cron: "5 0 * * *"  # 21h05 BRT
+  workflow_dispatch:       # permite rodar manualmente
+
+jobs:
+  run-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run cron job
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: npm run cron
